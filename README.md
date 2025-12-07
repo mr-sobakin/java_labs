@@ -1,4 +1,8 @@
-# Lab works for the IT subject of 2025 fall semester
+# Lab works Fall 2025
+
+This repository contains Java lab works for the IT subject of the 2025 fall semester.
+Each lab work is implemented in its own branch, named `labN`, where `N` is the lab work number.
+
 
 ## Lab completion progress
 

@@ -1,4 +1,4 @@
-package labs.lab4.vb.insurance.model;
+package labs.lab3.vb.insurance.model;
 
 public class PropertyInsurance extends InsuranceObligation {
     private double propertyValue;

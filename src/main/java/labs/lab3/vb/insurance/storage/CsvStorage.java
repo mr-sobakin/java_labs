@@ -1,7 +1,8 @@
-package labs.lab4.vb.insurance.storage;
+package labs.lab3.vb.insurance.storage;
 
-import labs.lab4.vb.insurance.derivative.Derivative;
-import labs.lab4.vb.insurance.model.*;
+import labs.lab3.vb.insurance.derivative.Derivative;
+import labs.lab3.vb.insurance.model.*;
+import labs.lab3.vb.insurance.model.*;
 
 import java.io.IOException;
 import java.nio.file.Files;

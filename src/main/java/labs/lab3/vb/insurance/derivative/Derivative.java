@@ -1,7 +1,7 @@
-package labs.lab4.vb.insurance.derivative;
+package labs.lab3.vb.insurance.derivative;
 
-import labs.lab4.vb.insurance.model.InsuranceObligation;
-import labs.lab4.vb.insurance.model.RiskLevel;
+import labs.lab3.vb.insurance.model.InsuranceObligation;
+import labs.lab3.vb.insurance.model.RiskLevel;
 
 import java.util.ArrayList;
 import java.util.Comparator;

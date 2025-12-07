@@ -1,8 +1,12 @@
-package labs.lab4.vb.insurance;
+package labs.lab3.vb.insurance;
 
-import labs.lab4.vb.insurance.derivative.Derivative;
-import labs.lab4.vb.insurance.model.*;
-import labs.lab4.vb.insurance.storage.CsvStorage;
+import labs.lab3.vb.insurance.derivative.Derivative;
+import labs.lab3.vb.insurance.model.HealthInsurance;
+import labs.lab3.vb.insurance.model.LifeInsurance;
+import labs.lab3.vb.insurance.model.PropertyInsurance;
+import labs.lab3.vb.insurance.model.RiskLevel;
+import labs.lab3.vb.insurance.model.*;
+import labs.lab3.vb.insurance.storage.CsvStorage;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -53,7 +57,7 @@ public class Main {
                     double min = parseDouble(sc.nextLine(), 0.0);
                     System.out.print("Max premium: ");
                     double max = parseDouble(sc.nextLine(), Double.MAX_VALUE);
-                    List found = derivative.findByPremiumRange(min, max);
+                    List<InsuranceObligation> found = derivative.findByPremiumRange(min, max);
                     System.out.println("Found obligations:");
                     found.forEach(System.out::println);
                     break;
