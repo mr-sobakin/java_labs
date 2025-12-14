@@ -11,6 +11,6 @@ Each lab work is implemented in its own branch, named `labN`, where `N` is the l
 | Lab work №2     | ✅       |
 | Lab work №3     | ✅       |
 | Lab work №4     | ✅       |
-| Lab work №5     | ❌       |
+| Lab work №5     | ✅       |
 | Lab work №6     | ❌       |
 | Lab work №7     | ❌       |

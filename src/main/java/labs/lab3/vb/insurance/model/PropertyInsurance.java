@@ -2,7 +2,7 @@ package labs.lab3.vb.insurance.model;
 
 public class PropertyInsurance extends InsuranceObligation {
     private double propertyValue;
-    private double locationRiskFactor; // e.g. 1.0 normal, >1 higher risk
+    private double locationRiskFactor;
 
     public PropertyInsurance(String id, String description, double insuredSum, double basePremiumRate, RiskLevel riskLevel,
                              double propertyValue, double locationRiskFactor) {
