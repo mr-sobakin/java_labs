@@ -3,25 +3,13 @@ package labs.lab5.vb.uniqueword;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Основная логика: нормализация пробелов, разбор на абзацы, предложение, листинги,
- * и применение удаления подстроки к каждому предложению.
- */
 public class TextProcessor {
-
-    /**
-     * Нормализует строку: заменяет табы и последовательности пробелов одним пробелом.
-     * Не трогает пустую строку (используется для разделения абзацев).
-     */
     public static String normalizeLine(String line) {
         if (line == null) return null;
         String t = line.replace('\t', ' ');
         return t.replaceAll(" {2,}", " ").trim();
     }
 
-    /**
-     * Разбирает текст на абзацы; листинги — последовательные строки, начинающиеся с таба или 4 пробелов.
-     */
     public static List<Paragraph> parseParagraphs(String text) {
         String[] rawParas = text.split("\\r?\\n\\s*\\r?\\n");
         List<Paragraph> result = new ArrayList<>();
@@ -40,7 +28,7 @@ public class TextProcessor {
                     listingBuf.append(line).append(System.lineSeparator());
                 } else {
                     if (inListing) {
-                        p.add(new Listing(listingBuf.toString().trim()));
+                        p.add(new Sentence(listingBuf.toString().trim()));
                         inListing = false;
                     }
                     String normalized = normalizeLine(line);
@@ -52,7 +40,7 @@ public class TextProcessor {
                 }
             }
             if (inListing) {
-                p.add(new Listing(listingBuf.toString().trim()));
+                p.add(new Sentence(listingBuf.toString().trim()));
             }
             result.add(p);
         }
@@ -78,7 +66,7 @@ public class TextProcessor {
                 while (i + 1 < line.length() && line.charAt(i + 1) == ' ') i++;
             }
         }
-        if (sb.length() > 0) {
+        if (!sb.isEmpty()) {
             list.add(sb.toString().trim());
         }
         return list;
@@ -91,12 +79,11 @@ public class TextProcessor {
         for (Paragraph p : paragraphs) {
             if (!firstPara) out.append(System.lineSeparator()).append(System.lineSeparator());
             firstPara = false;
-            for (Object part : p.getParts()) {
-                if (part instanceof Listing) {
-                    out.append(((Listing) part).toString()).append(System.lineSeparator());
-                } else if (part instanceof Sentence) {
-                    Sentence s = (Sentence) part;
-                    String processed = s.removeMaxSubstring(startChar, endChar);
+            for (Sentence s : p.getSentences()) {
+                String processed = s.removeMaxSubstring(startChar, endChar);
+               if (s.toString().contains("\n")) {
+                    out.append(processed).append(System.lineSeparator());
+                } else {
                     out.append(processed);
                     if (!processed.endsWith(System.lineSeparator())) out.append(" ");
                 }
